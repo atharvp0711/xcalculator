@@ -7,10 +7,14 @@ function App() {
 
   const handleClick = (value) => {
     if (value === "=") {
-      try {
-        setResult(eval(input));
-      } catch (error) {
+      if (input.trim() === "") {
         setResult("Error");
+      } else {
+        try {
+          setResult(eval(input));
+        } catch (error) {
+          setResult("Error");
+        }
       }
     } else if (value === "C") {
       setInput("");
